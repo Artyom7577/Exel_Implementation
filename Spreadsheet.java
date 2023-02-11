@@ -1,7 +1,7 @@
 public class Spreadsheet {
     Cell[][] m_cells;
     Spreadsheet(int row, int col) {
-        if (row < 0 || col < 0) {
+        if (row <= 0 || col <= 0) {
             throw new IllegalArgumentException("row or colum is a negative! ");
         }else {
             this.m_cells = new Cell[row][col];
@@ -103,7 +103,7 @@ public class Spreadsheet {
         }
     }
     public void addColum(int col) {
-        if(col < 0 || col >= m_cells[0].length){
+        if(col < 0){
 
             throw new IllegalArgumentException("Colum is negative or 0");
 
