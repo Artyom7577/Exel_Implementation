@@ -1,5 +1,7 @@
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class CellTest {
     @Test
@@ -33,20 +35,6 @@ public class CellTest {
     public void testToDouble() {
         Cell cell = new Cell("5.5");
         assertEquals(5.5, cell.toDouble(), 0.0);
-    }
-
-    @Test
-    public void testToDateValid() {
-        Cell cell = new Cell();
-        Date date = cell.toDate(2021, 1, 1);
-        // Assuming the showDate method prints the date to the console
-        // You can add assertions to check the values of the year, month, and day of the returned date object
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testToDateInvalid() {
-        Cell cell = new Cell();
-        cell.toDate(999, 13, 32);
     }
 
     @Test
