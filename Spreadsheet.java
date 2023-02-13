@@ -1,9 +1,10 @@
 public class Spreadsheet {
     Cell[][] m_cells;
+
     Spreadsheet(int row, int col) {
         if (row <= 0 || col <= 0) {
             throw new IllegalArgumentException("row or colum is a negative! ");
-        }else {
+        } else {
             this.m_cells = new Cell[row][col];
             for (int i = 0; i < m_cells.length; i++) {
                 for (int j = 0; j < m_cells[i].length; j++) {
@@ -12,13 +13,13 @@ public class Spreadsheet {
             }
         }
     }
+
     public void setCellAt(int row, int col, Cell cl) {
         if (row < 0 || row > m_cells.length || col < 0 || col > m_cells[0].length) {
 
-            throw new IllegalArgumentException("index row or index colum is negative! or " +
-                    "bigger that object length ");
+            throw new IllegalArgumentException("index row or index colum is negative! or " + "bigger that object length ");
 
-        }else {
+        } else {
             for (int i = 0; i < m_cells.length; i++) {
                 for (int j = 0; j < m_cells[i].length; j++) {
                     if (i == row && j == col) {
@@ -28,13 +29,13 @@ public class Spreadsheet {
             }
         }
     }
+
     public void setCellAt(int row, int col, String cl) {
         if (row < 0 || row > m_cells.length || col < 0 || col > m_cells[0].length) {
 
-            throw new IllegalArgumentException("index row or index colum is negative! or " +
-                    "bigger that object length ");
+            throw new IllegalArgumentException("index row or index colum is negative! or " + "bigger that object length ");
 
-        }else {
+        } else {
             for (int i = 0; i < m_cells.length; i++) {
                 for (int j = 0; j < m_cells[i].length; j++) {
                     if (i == row && j == col) {
@@ -44,21 +45,23 @@ public class Spreadsheet {
             }
         }
     }
-    public String getCellAt(int row, int col) {
+
+    public Cell getCellAt(int row, int col) {
         if (row < 0 || col < 0 || row >= m_cells.length || col >= m_cells[0].length) {
 
             throw new IllegalArgumentException("index row or index colum cant be negative or bigger! ");
 
-        }else {
-            return m_cells[row][col].getValue();
+        } else {
+            return m_cells[row][col];
         }
     }
+
     public void addRow(int row) {
         if (row < 0) {
 
             throw new IllegalArgumentException("add row index is negative! ");
 
-        }else {
+        } else {
             int rows = m_cells.length;
             int cols = m_cells[0].length;
             Cell[][] newArray = new Cell[rows + row][cols];
@@ -81,12 +84,13 @@ public class Spreadsheet {
             }
         }
     }
+
     public void removeRow(int row) {
         if (row < 0 || row > m_cells.length) {
 
             throw new IllegalArgumentException("remove Row index is negative or bigger than array Row! ");
 
-        }else {
+        } else {
 
             int rows = m_cells.length;
             int cols = m_cells[0].length;
@@ -102,12 +106,13 @@ public class Spreadsheet {
             m_cells = newArray;
         }
     }
+
     public void addColum(int col) {
-        if(col < 0){
+        if (col < 0) {
 
             throw new IllegalArgumentException("Colum is negative or 0");
 
-        }else {
+        } else {
 
             int rows = m_cells.length;
             int cols = m_cells[0].length;
@@ -133,12 +138,13 @@ public class Spreadsheet {
             }
         }
     }
+
     public void removeColum(int col) {
         if (col < 0 || col > m_cells[0].length) {
 
             throw new IllegalArgumentException("remove Colum index is negative or bigger than array Colum! ");
 
-        }else {
+        } else {
 
             int rows = m_cells.length;
             int cols = m_cells[0].length;
@@ -157,6 +163,7 @@ public class Spreadsheet {
             }
         }
     }
+
     public void swapRows(int r1, int r2) {
         if (r1 < 0 || r2 < 0 || r1 > m_cells.length || r2 > m_cells.length) {
 
@@ -171,7 +178,8 @@ public class Spreadsheet {
             System.out.println();
         }
     }
-    public void swapColums(int c1, int c2) {
+
+    public void swapCols(int c1, int c2) {
         if (c1 < 0 || c2 < 0 || c1 > m_cells[0].length || c2 > m_cells[0].length) {
 
             throw new IllegalArgumentException("swap numbers is negative or bigger than Colum! ");
@@ -188,7 +196,8 @@ public class Spreadsheet {
             System.out.println();
         }
     }
-    public void showMatrix(){
+
+    public void showMatrix() {
         System.out.println();
         for (Cell[] mCell : m_cells) {
             for (Cell cell : mCell) {
@@ -198,3 +207,4 @@ public class Spreadsheet {
         }
     }
 }
+
